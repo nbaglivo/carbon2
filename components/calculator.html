@@ -1,0 +1,85 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="../bower_components/core-menu/core-menu.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-radio-group/paper-radio-group.html">
+<link rel="import" href="../bower_components/paper-radio-button/paper-radio-button.html">
+<link rel="import" href="../bower_components/paper-dropdown-menu/paper-dropdown-menu.html">
+<link rel="import" href="../bower_components/paper-dropdown/paper-dropdown.html">
+<link rel="import" href="../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+
+
+<polymer-element name="carbon-calculator">
+	<template>
+		<style type="text/css">
+		.transport-mean {
+			width: 100%;
+			text-align: center;
+		}
+		.custom {
+			text-transform: none;
+			color: #A5D6A7;
+		}
+		.red {
+			color: #F44336;
+		}
+		</style>
+			<div id="calculator">
+					<section>
+					    <paper-dropdown-menu label="Medio de transporte" class="transport-mean">
+				        <paper-dropdown class="dropdown transport-mean">
+				          <core-menu class="menu">
+				              <paper-item>A pata</paper-item>
+				              <paper-item>Bici</paper-item>
+				              <paper-item>Bondi</paper-item>
+				              <paper-item>Auto</paper-item>
+				          </core-menu>
+				        </paper-dropdown>
+				      </paper-dropdown-menu>
+					</section>
+					<section id="fueltype">
+							Tipo de combustible
+						    <paper-radio-group selected="always">
+						      <paper-radio-button name="Nafta" label="Nafta"></paper-radio-button>
+						      <paper-radio-button name="Diesel" label="Diesel"></paper-radio-button>
+						      <paper-radio-button name="GNC" label="GNC"></paper-radio-button>
+						    </paper-radio-group>
+					</section>
+					<div id="distance" class="form-group hide">
+						<paper-input-decorator label="Distancia en kilómetros" floatingLabel>
+							<input is="core-input">
+						</paper-input-decorator>
+					</div>
+					<div id="efficiency" class="form-group hide">
+						<paper-input-decorator label="Eficiencia (número de kilometros por litro consumido)" floatingLabel>
+							<input is="core-input">
+						</paper-input-decorator>
+					</div>
+					<div id="transportation-occupants" class="form-group hide">
+						<paper-input-decorator label="Número de ocupantes del vehículo" floatingLabel>
+							<input is="core-input">
+						</paper-input-decorator>
+					</div>
+
+					<div id="result-buttons" class="hide" style="display:inline;">
+						<paper-button class="red custom">
+							<core-icon icon="clear"></core-icon>
+							Si
+						</paper-button>
+						<paper-button class="custom">
+							<core-icon icon="check"></core-icon>
+							No, voy a pata
+						</paper-button>
+					</div>
+				</div>
+	</template>
+
+	<script>
+	Polymer("carbon-calculator", {
+		ready: function() {
+			console.log("calculator is ready!")
+		}
+	});
+	</script>
+
+</polymer-element>
